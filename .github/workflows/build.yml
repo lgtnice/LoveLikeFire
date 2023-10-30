@@ -52,7 +52,7 @@ jobs:
       run: pwsh -File ./build/PublishInActions.ps1
       working-directory: ${{ github.workspace }}
 
-    # 上传发布的输出
+    # 上传artifact
     - name: Upload Artifacts
       uses: actions/upload-artifact@v2
       with:

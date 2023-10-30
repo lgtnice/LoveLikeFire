@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainWPF", "..\src\MainWPF\MainWPF.csproj", "{2B58BDE8-83EE-48BA-9815-4EA3CA65137B}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{F321A079-A8AE-480E-B4BF-53C6DEA612B1}"
 	ProjectSection(SolutionItems) = preProject
 		PostBuildEvent.ps1 = PostBuildEvent.ps1
@@ -36,27 +34,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		..\.github\workflows\build.yml = ..\.github\workflows\build.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainWPF", "..\src\MainWPF\MainWPF.csproj", "{148DBE53-92BD-4891-82F5-B35DD42F8B9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2B58BDE8-83EE-48BA-9815-4EA3CA65137B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B58BDE8-83EE-48BA-9815-4EA3CA65137B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B58BDE8-83EE-48BA-9815-4EA3CA65137B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B58BDE8-83EE-48BA-9815-4EA3CA65137B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{148DBE53-92BD-4891-82F5-B35DD42F8B9C}.Debug|x64.ActiveCfg = Debug|x64
+		{148DBE53-92BD-4891-82F5-B35DD42F8B9C}.Debug|x64.Build.0 = Debug|x64
+		{148DBE53-92BD-4891-82F5-B35DD42F8B9C}.Release|x64.ActiveCfg = Release|x64
+		{148DBE53-92BD-4891-82F5-B35DD42F8B9C}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{2B58BDE8-83EE-48BA-9815-4EA3CA65137B} = {BC64F153-0960-442B-8E3D-8B8463B15216}
 		{30778F98-8EF9-482D-9343-F2B622990280} = {BC64F153-0960-442B-8E3D-8B8463B15216}
 		{FEB56EF9-639F-4C3D-9148-81333BB792F6} = {30778F98-8EF9-482D-9343-F2B622990280}
 		{F2B214AE-0693-497F-9440-D2F88DF41A72} = {30778F98-8EF9-482D-9343-F2B622990280}
 		{6C1F1514-1546-4902-8250-74F31D394505} = {30778F98-8EF9-482D-9343-F2B622990280}
 		{4C14A23A-756D-4B44-8554-C1B0F2A32D3E} = {38652F47-2D5E-41A0-858B-DEFB70415DB2}
+		{148DBE53-92BD-4891-82F5-B35DD42F8B9C} = {BC64F153-0960-442B-8E3D-8B8463B15216}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFCBAC7F-957E-4281-83A2-8CF2B6577A71}

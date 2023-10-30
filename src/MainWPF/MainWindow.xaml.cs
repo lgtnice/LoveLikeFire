@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CefSharp;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -17,12 +18,10 @@ using System.Windows.Shapes;
 namespace MainWPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// MainWindow.xaml 的交互逻辑
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly string showPagesPath;
-
         public MainWindow()
         {
             InitializeComponent();
@@ -32,9 +31,13 @@ namespace MainWPF
         {
             string initPage = RelativeToAbsolute("ShowPages\\html\\index.html");
 
-            webControl.Navigate(initPage);
+            webControl.Address = initPage;
         }
 
+        private void webControl_FrameLoadEnd(object sender, FrameLoadEndEventArgs e)
+        {
+            webControl.ExecuteScriptAsync("setContent", "Hello, World!");
+        }
 
         internal static string RelativeToAbsolute(string originPath)
         {
@@ -47,12 +50,6 @@ namespace MainWPF
             string dllDir = System.IO.Path.GetDirectoryName(dllPath);
             string finalAbsolutePath = System.IO.Path.Combine(dllDir, originPath);
             return finalAbsolutePath;
-        }
-
-        private void webControl_LoadCompleted(object sender, NavigationEventArgs e)
-        {
-            // 将字符串传递到浏览器页面
-            webControl.InvokeScript("setContent", new object[] { "Hello, World!" });
         }
     }
 }
