@@ -1,0 +1,63 @@
+name: LoveLikeFireAction
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  BuildAndPublish:
+    # For a list of available runner types, refer to
+    # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+    runs-on: windows-latest 
+    
+    strategy:
+      matrix:
+        configuration: [Release]
+
+    env:
+      Solution_Name: build/LoveLikeFire.sln
+      Configuration: Release
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    # Install the .NET Core workload
+    - name: Install .NET Core
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x
+
+    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    # Restore the application to populate the obj folder with RuntimeIdentifiers
+    - name: RestoreApplication
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
+      working-directory: ${{ github.workspace }}/
+
+    # Build the application
+    - name: BuildProject
+      run: dotnet build $env:Solution_Name -c $env:Configuration
+      working-directory: ${{ github.workspace }}/
+      
+    # 运行 PublishInActions.ps1 脚本
+    - name: Run Publish Script
+      uses: dorny/powershell@v2
+      with:
+        script: ./build/PublishInActions.ps1
+      working-directory: ${{ github.workspace }}
+
+    # 上传发布的输出
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: published-app
+        path: ./publish
+      working-directory: ${{ github.workspace }}
