@@ -1,10 +1,10 @@
 Param(
-    [string]$PublishDir = '.\publish'
+    [string]$PublishDir = '.\..\publish'
 )
 
 $ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Definition
 
-$ProjConfigFilePath = Join-Path -Path $ScriptDir -ChildPath ".\src\MainWPF\MainWPF.csproj"
+$ProjConfigFilePath = Join-Path -Path $ScriptDir -ChildPath ".\..\src\MainWPF\MainWPF.csproj"
 $ProjConfigFilePath = Resolve-Path $ProjConfigFilePath
 
 $PublishDir = Join-Path -Path $ScriptDir -ChildPath $PublishDir
@@ -23,7 +23,7 @@ $net6_winx64_ConfigFile = @"
     <Platform>Any CPU</Platform>
     <PublishDir>$PublishDir</PublishDir>
     <PublishProtocol>FileSystem</PublishProtocol>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
     <SelfContained>true</SelfContained>
     <PublishSingleFile>false</PublishSingleFile>
@@ -41,7 +41,7 @@ $PostBuildScriptDir = Resolve-Path $PostBuildScriptDir
 
 # Reference: https://learn.microsoft.com/zh-cn/dotnet/core/tools/dotnet-publish
 
-dotnet publish $ProjConfigFilePath -f net6.0 -c Release -p:PublishProfileFullPath=$ScriptDir\publish_net6_winx64.pubxml
+dotnet publish $ProjConfigFilePath -f net6.0-windows -c Release -p:PublishProfileFullPath=$ScriptDir\publish_net6_winx64.pubxml
 & $PostBuildScriptDir -ProjectName 'MainWPF' -OutDir "$PublishDir" -Platform "x64" -Configuration "Release"
 
 
