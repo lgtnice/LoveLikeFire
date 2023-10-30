@@ -52,7 +52,6 @@ jobs:
       uses: dorny/powershell@v2
       with:
         script: ./build/PublishInActions.ps1
-      working-directory: ${{ github.workspace }}
 
     # 上传发布的输出
     - name: Upload Artifacts
@@ -60,4 +59,3 @@ jobs:
       with:
         name: published-app
         path: ./publish
-      working-directory: ${{ github.workspace }}
