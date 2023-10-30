@@ -25,7 +25,7 @@ $net6_winx64_ConfigFile = @"
     <PublishProtocol>FileSystem</PublishProtocol>
     <TargetFramework>net6.0-windows</TargetFramework>
     <RuntimeIdentifier>win-x64</RuntimeIdentifier>
-    <SelfContained>true</SelfContained>
+    <SelfContained>false</SelfContained>
     <PublishSingleFile>false</PublishSingleFile>
     <PublishReadyToRun>false</PublishReadyToRun>
   </PropertyGroup>
