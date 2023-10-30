@@ -27,12 +27,6 @@ jobs:
       with:
         fetch-depth: 0
 
-    # Install the .NET Core workload
-    - name: Install .NET Core
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x
-
     # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.0.2
@@ -44,8 +38,8 @@ jobs:
 
     # Build the application
     - name: BuildProject
-      run: dotnet build $env:Solution_Name -c $env:Configuration
-      working-directory: ${{ github.workspace }}/
+      run: msbuild $env:Solution_Name /p:Configuration=$env:Configuration
+      working-directory: ${{ github.workspace }}
       
     # ‘À–– PublishInActions.ps1 Ω≈±æ
     - name: Run Publish Script
