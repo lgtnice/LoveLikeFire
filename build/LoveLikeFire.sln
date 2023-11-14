@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainWPF", "..\src\MainWPF\MainWPF.csproj", "{148DBE53-92BD-4891-82F5-B35DD42F8B9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPTReader", "..\src\PPTReader\PPTReader.csproj", "{32E7C417-4889-436A-8C3C-14339D508C95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -46,6 +48,10 @@ Global
 		{148DBE53-92BD-4891-82F5-B35DD42F8B9C}.Debug|x64.Build.0 = Debug|x64
 		{148DBE53-92BD-4891-82F5-B35DD42F8B9C}.Release|x64.ActiveCfg = Release|x64
 		{148DBE53-92BD-4891-82F5-B35DD42F8B9C}.Release|x64.Build.0 = Release|x64
+		{32E7C417-4889-436A-8C3C-14339D508C95}.Debug|x64.ActiveCfg = Debug|x64
+		{32E7C417-4889-436A-8C3C-14339D508C95}.Debug|x64.Build.0 = Debug|x64
+		{32E7C417-4889-436A-8C3C-14339D508C95}.Release|x64.ActiveCfg = Release|x64
+		{32E7C417-4889-436A-8C3C-14339D508C95}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{6C1F1514-1546-4902-8250-74F31D394505} = {30778F98-8EF9-482D-9343-F2B622990280}
 		{4C14A23A-756D-4B44-8554-C1B0F2A32D3E} = {38652F47-2D5E-41A0-858B-DEFB70415DB2}
 		{148DBE53-92BD-4891-82F5-B35DD42F8B9C} = {BC64F153-0960-442B-8E3D-8B8463B15216}
+		{32E7C417-4889-436A-8C3C-14339D508C95} = {BC64F153-0960-442B-8E3D-8B8463B15216}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EFCBAC7F-957E-4281-83A2-8CF2B6577A71}
